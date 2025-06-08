@@ -134,6 +134,29 @@
       margin-top: 4rem;
       animation: fadeInUp 1.2s ease;
     }
+    #countdown {
+      font-size: 2rem;
+      color: var(--accent-color);
+      margin-top: 1rem;
+    }
+    form {
+      margin-top: 2rem;
+    }
+    input, button {
+      padding: 0.5rem;
+      margin: 0.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: none;
+    }
+    input {
+      width: 250px;
+    }
+    button[type="submit"] {
+      background-color: var(--accent-color);
+      color: white;
+      cursor: pointer;
+    }
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -204,7 +227,12 @@
     </section>
 
     <div id="coming-soon" class="coming-soon">
-      🚧 Download Coming Soon... 🚧
+      🚧 Download Coming Soon...
+      <div id="countdown"></div>
+      <form>
+        <input type="email" placeholder="Enter your email for updates" required />
+        <button type="submit">Notify Me</button>
+      </form>
     </div>
   </main>
 
@@ -214,6 +242,30 @@
       const currentTheme = body.getAttribute("data-theme");
       body.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
     }
+
+    const countdownElement = document.getElementById('countdown');
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 17);
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        countdownElement.innerHTML = "🚀 It's here!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s until launch!`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
   </script>
 </body>
 </html>
