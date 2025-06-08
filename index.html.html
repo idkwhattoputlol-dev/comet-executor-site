@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comet Executor</title>
+  <style>
+    :root {
+      --bg-color: #0a0a0a;
+      --text-color: white;
+      --accent-color: #ff99e0;
+      --card-bg: #1a1a1a;
+      --header-bg: #121212;
+    }
+    [data-theme="light"] {
+      --bg-color: #f4f4f4;
+      --text-color: #121212;
+      --accent-color: #7f00ff;
+      --card-bg: #ffffff;
+      --header-bg: #e4e4e4;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      text-align: center;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    header {
+      padding: 1rem;
+      background: var(--header-bg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #2c2c2c;
+      transition: background 0.4s ease;
+    }
+    .logo {
+      color: #ff7ce5;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    nav a {
+      color: var(--text-color);
+      margin-left: 1rem;
+      text-decoration: none;
+      transition: color 0.4s ease;
+    }
+    .theme-toggle {
+      margin-left: 1rem;
+      background: transparent;
+      border: 1px solid var(--accent-color);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      color: var(--accent-color);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .theme-toggle:hover {
+      background: var(--accent-color);
+      color: white;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      margin-top: 2rem;
+      animation: fadeInDown 1s ease;
+    }
+    .subtext {
+      color: #cccccc;
+      margin: 1rem 0 2rem;
+      animation: fadeInUp 1.2s ease;
+    }
+    .discord-btn {
+      background: linear-gradient(90deg, #ff7ce5, #7f5eff);
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      animation: fadeIn 1.4s ease;
+    }
+    .discord-btn:hover {
+      transform: scale(1.05);
+    }
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+      animation: fadeIn 1.6s ease;
+    }
+    .feature {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 10px;
+      width: 280px;
+      text-align: left;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+      transition: background 0.4s ease, transform 0.3s ease;
+    }
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+    .feature h3 {
+      margin-top: 0;
+      color: var(--accent-color);
+    }
+    .stats {
+      background: linear-gradient(90deg, #2a0033, #220033);
+      padding: 2rem 0;
+      margin-top: 3rem;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      animation: fadeInUp 1.8s ease;
+    }
+    .stat {
+      font-size: 1.5rem;
+    }
+    .stat span {
+      display: block;
+      font-size: 2rem;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body data-theme="dark">
+  <header>
+    <div class="logo">
+      ✨ Comet
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Download</a>
+      <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Comet Executor</h1>
+    <p class="subtext">Your ultimate Roblox executor experience.<br>
+      Welcome to the future of Roblox scripting. Comet brings unparalleled performance and security to your Roblox scripting workflow.
+    </p>
+    <button class="discord-btn">Join our Discord</button>
+
+    <section class="features">
+      <div class="feature">
+        <h3>⚡ Blazing Fast</h3>
+        <p>Optimized execution speeds ensure smooth script running without any lag or delays.</p>
+      </div>
+      <div class="feature">
+        <h3>🛡 Safe & Secure</h3>
+        <p>Advanced protection to stay ahead of banwaves and keep your account secure.</p>
+      </div>
+      <div class="feature">
+        <h3>⟫ Script Editor</h3>
+        <p>Write, edit, and save scripts with ease using our built-in advanced editor.</p>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat">
+        <span>30+</span>
+        Active Users
+      </div>
+      <div class="stat">
+        <span>99%</span>
+        Detection Free
+      </div>
+      <div class="stat">
+        <span>24/7</span>
+        Support
+      </div>
+      <div class="stat">
+        <span>1ms</span>
+        Execution Time
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const currentTheme = body.getAttribute("data-theme");
+      body.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+    }
+  </script>
+</body>
+</html>
