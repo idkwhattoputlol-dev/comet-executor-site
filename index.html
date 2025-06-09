@@ -139,28 +139,15 @@
     }
     .countdown {
       margin-top: 1rem;
-      font-size: 1.5rem;
-    }
-    .countdown span {
+      font-size: 1.8rem;
       color: var(--accent-color);
       font-weight: bold;
     }
-    form {
-      margin-top: 2rem;
-    }
-    form input[type="text"] {
-      padding: 0.5rem;
-      border-radius: 5px;
-      border: 1px solid var(--accent-color);
-      margin-right: 1rem;
-    }
-    form input[type="submit"] {
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      background: var(--accent-color);
-      color: white;
-      border: none;
-      cursor: pointer;
+    .coming-soon {
+      font-size: 3rem;
+      color: var(--accent-color);
+      margin-top: 4rem;
+      animation: fadeInDown 2s ease;
     }
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-20px); }
@@ -197,11 +184,6 @@
       <button class="discord-btn">Join our Discord</button>
     </a>
 
-    <form onsubmit="event.preventDefault(); alert('Form submitted!')">
-      <input type="text" placeholder="Enter something..." required />
-      <input type="submit" value="Submit" />
-    </form>
-
     <section class="features">
       <div class="feature">
         <h3>⚡ Blazing Fast</h3>
@@ -237,7 +219,7 @@
     </section>
 
     <section id="download" class="coming-soon">
-      🚧 Download Coming Soon... 🚧
+      🚧 Download Coming Soon...
     </section>
 
     <div class="countdown" id="countdown"></div>
