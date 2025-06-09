@@ -6,172 +6,168 @@
   <title>Comet Executor</title>
   <style>
     :root {
-      --bg-color: #0a0a0a;
-      --text-color: white;
-      --accent-color: #ff99e0;
-      --card-bg: #1a1a1a;
-      --header-bg: #121212;
+      --bg-color: #050a1f;
+      --text-color: #dbeafe;
+      --accent-color: #7f5af0;
+      --card-bg: #0b0f2b;
+      --header-bg: #0a0d26;
+      --glow-color: rgba(127, 90, 240, 0.6);
     }
     [data-theme="light"] {
-      --bg-color: #f4f4f4;
-      --text-color: #121212;
-      --accent-color: #7f00ff;
+      --bg-color: #e9f0ff;
+      --text-color: #0a0d26;
+      --accent-color: #5a00d4;
       --card-bg: #ffffff;
-      --header-bg: #e4e4e4;
+      --header-bg: #dee7ff;
+      --glow-color: rgba(90, 0, 212, 0.15);
+    }
+    * {
+      box-sizing: border-box;
     }
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
-      text-align: center;
-      transition: background-color 0.4s ease, color 0.4s ease;
+      transition: all 0.3s ease-in-out;
+      background-image: radial-gradient(var(--glow-color) 1px, transparent 1px);
+      background-size: 50px 50px;
     }
     header {
-      padding: 1rem;
-      background: var(--header-bg);
+      background-color: var(--header-bg);
+      padding: 1.2rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #2c2c2c;
-      transition: background 0.4s ease;
+      border-bottom: 2px solid var(--accent-color);
+      box-shadow: 0 0 15px var(--glow-color);
     }
     .logo {
-      color: #ff7ce5;
-      font-weight: bold;
-      font-size: 1.2rem;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      text-shadow: 0 0 8px var(--accent-color);
     }
     nav {
       display: flex;
-      align-items: center;
+      gap: 1rem;
     }
-    nav a {
-      color: var(--text-color);
-      margin: 0 0.5rem;
+    nav a, .theme-toggle {
       text-decoration: none;
-      transition: color 0.4s ease, transform 0.2s ease;
-      padding: 0.5rem 1rem;
+      color: var(--text-color);
+      padding: 0.6rem 1.2rem;
       border-radius: 10px;
-      display: inline-block;
+      font-weight: bold;
+      border: 2px solid var(--accent-color);
+      background-color: transparent;
+      transition: all 0.3s ease;
     }
-    nav a:hover {
-      transform: scale(1.05);
-      background: var(--accent-color);
+    nav a:hover, .theme-toggle:hover {
+      background-color: var(--accent-color);
       color: white;
+      box-shadow: 0 0 10px var(--glow-color);
     }
-    .theme-toggle {
-      margin-left: 1rem;
-      background: transparent;
-      border: 1px solid var(--accent-color);
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
-      color: var(--accent-color);
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .theme-toggle:hover {
-      background: var(--accent-color);
-      color: white;
+    main {
+      padding: 3rem 1rem;
+      text-align: center;
     }
     h1 {
-      font-size: 2.5rem;
+      font-size: 3.5rem;
       color: var(--accent-color);
-      margin-top: 2rem;
-      animation: fadeInDown 1s ease;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 12px var(--glow-color);
     }
     .subtext {
-      color: #cccccc;
-      margin: 1rem 0 2rem;
-      animation: fadeInUp 1.2s ease;
+      font-size: 1.15rem;
+      opacity: 0.85;
+      max-width: 750px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
     }
     .discord-btn {
-      background: linear-gradient(90deg, #ff7ce5, #7f5eff);
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 30px;
+      background: linear-gradient(to right, #7f5af0, #00c6ff);
       color: white;
-      font-size: 1rem;
+      padding: 0.9rem 2.2rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 50px;
       cursor: pointer;
-      transition: transform 0.2s ease;
-      animation: fadeIn 1.4s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .discord-btn:hover {
-      transform: scale(1.05);
+      transform: scale(1.08);
+      box-shadow: 0 0 15px var(--glow-color);
     }
     .features {
       display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 3rem;
       flex-wrap: wrap;
-      animation: fadeIn 1.6s ease;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 4rem;
     }
     .feature {
-      background: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: 10px;
-      width: 280px;
-      text-align: left;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
-      transition: background 0.4s ease, transform 0.3s ease;
+      background-color: var(--card-bg);
+      padding: 2rem;
+      border-radius: 16px;
+      width: 300px;
+      box-shadow: 0 5px 25px var(--glow-color);
+      transition: transform 0.3s ease, background-color 0.3s ease;
     }
     .feature:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
     }
     .feature h3 {
-      margin-top: 0;
       color: var(--accent-color);
+      margin-bottom: 0.75rem;
+      font-size: 1.6rem;
+      text-shadow: 0 0 5px var(--glow-color);
+    }
+    .feature p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      opacity: 0.95;
     }
     .stats {
-      background: linear-gradient(90deg, #2a0033, #220033);
-      padding: 2rem 0;
-      margin-top: 3rem;
+      margin-top: 5rem;
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 16px;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       gap: 3rem;
-      flex-wrap: wrap;
-      animation: fadeInUp 1.8s ease;
+      box-shadow: 0 5px 30px var(--glow-color);
     }
     .stat {
-      font-size: 1.5rem;
+      text-align: center;
     }
     .stat span {
       display: block;
-      font-size: 2rem;
-      color: var(--accent-color);
+      font-size: 2.4rem;
       font-weight: bold;
-    }
-    .countdown {
-      margin-top: 1rem;
-      font-size: 1.8rem;
       color: var(--accent-color);
-      font-weight: bold;
+      text-shadow: 0 0 10px var(--glow-color);
     }
     .coming-soon {
-      font-size: 3rem;
+      font-size: 5rem;
+      margin-top: 5rem;
       color: var(--accent-color);
-      margin-top: 4rem;
-      animation: fadeInDown 2s ease;
+      text-shadow: 0 0 10px var(--glow-color);
     }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .countdown {
+      margin-top: 2rem;
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: var(--accent-color);
     }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    .countdown span {
+      color: var(--accent-color);
     }
   </style>
 </head>
 <body data-theme="dark">
   <header>
-    <div class="logo">
-      ✨ Comet
-    </div>
+    <div class="logo">✨ Comet</div>
     <nav>
       <a href="#">Home</a>
       <a href="#">Get Key</a>
@@ -192,15 +188,15 @@
     <section class="features">
       <div class="feature">
         <h3>⚡ Blazing Fast</h3>
-        <p>Optimized execution speeds ensure smooth script running without any lag or delays.</p>
+        <p><strong>Lightning-speed execution</strong> ensures every script runs flawlessly without lag or stutter. No more waiting—just results.</p>
       </div>
       <div class="feature">
         <h3>🛡 Safe & Secure</h3>
-        <p>Advanced protection to stay ahead of banwaves and keep your account secure.</p>
+        <p>Stay protected with <strong>advanced anti-detection layers</strong> designed to shield your account from banwaves and security breaches.</p>
       </div>
       <div class="feature">
         <h3>➫ Script Editor</h3>
-        <p>Write, edit, and save scripts with ease using our built-in advanced editor.</p>
+        <p>Powerful, intuitive, and built-in—our editor lets you <strong>write, tweak, and store scripts</strong> in one seamless environment.</p>
       </div>
     </section>
 
@@ -263,3 +259,4 @@
   </script>
 </body>
 </html>
+
