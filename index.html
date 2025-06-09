@@ -13,11 +13,11 @@
       --header-bg: #121212;
     }
     [data-theme="light"] {
-      --bg-color: #f4f4f4;
+      --bg-color: #fefefe;
       --text-color: #121212;
-      --accent-color: #7f00ff;
+      --accent-color: #c500ff;
       --card-bg: #ffffff;
-      --header-bg: #e4e4e4;
+      --header-bg: #f5f5f5;
     }
     body {
       margin: 0;
@@ -33,19 +33,20 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #2c2c2c;
+      border-bottom: 1px solid #ccc;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       transition: background 0.4s ease;
     }
     .logo {
-      color: #ff7ce5;
+      color: var(--accent-color);
       font-weight: bold;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
     }
     nav a {
       color: var(--text-color);
       margin-left: 1rem;
       text-decoration: none;
-      transition: color 0.4s ease, transform 0.2s ease;
+      transition: color 0.4s ease, transform 0.2s ease, background 0.3s;
       padding: 0.5rem 1rem;
       border-radius: 10px;
       display: inline-block;
@@ -58,7 +59,7 @@
     .theme-toggle {
       margin-left: 1rem;
       background: transparent;
-      border: 1px solid var(--accent-color);
+      border: 2px solid var(--accent-color);
       padding: 0.4rem 1rem;
       border-radius: 20px;
       color: var(--accent-color);
@@ -70,14 +71,15 @@
       color: white;
     }
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       color: var(--accent-color);
       margin-top: 2rem;
       animation: fadeInDown 1s ease;
     }
     .subtext {
-      color: #cccccc;
+      color: #666;
       margin: 1rem 0 2rem;
+      font-size: 1.1rem;
       animation: fadeInUp 1.2s ease;
     }
     .discord-btn {
@@ -88,11 +90,13 @@
       color: white;
       font-size: 1rem;
       cursor: pointer;
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       animation: fadeIn 1.4s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
     .discord-btn:hover {
       transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
     }
     .features {
       display: flex;
@@ -108,7 +112,7 @@
       border-radius: 10px;
       width: 280px;
       text-align: left;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
       transition: background 0.4s ease, transform 0.3s ease;
     }
     .feature:hover {
@@ -140,27 +144,14 @@
     .countdown {
       margin-top: 1rem;
       font-size: 1.5rem;
-    }
-    .countdown span {
       color: var(--accent-color);
       font-weight: bold;
     }
-    form {
-      margin-top: 2rem;
-    }
-    form input[type="text"] {
-      padding: 0.5rem;
-      border-radius: 5px;
-      border: 1px solid var(--accent-color);
-      margin-right: 1rem;
-    }
-    form input[type="submit"] {
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      background: var(--accent-color);
-      color: white;
-      border: none;
-      cursor: pointer;
+    .coming-soon {
+      font-size: 3rem;
+      color: var(--accent-color);
+      margin-top: 4rem;
+      animation: fadeInDown 2s ease;
     }
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-20px); }
@@ -177,102 +168,6 @@
   </style>
 </head>
 <body data-theme="dark">
-  <header>
-    <div class="logo">
-      ✨ Comet
-    </div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#download">Download</a>
-      <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
-    </nav>
-  </header>
-
-  <main>
-    <h1>Comet Executor</h1>
-    <p class="subtext">Your ultimate Roblox executor experience.<br>
-      Welcome to the future of Roblox scripting. Comet brings unparalleled performance and security to your Roblox scripting workflow.
-    </p>
-    <a href="https://discord.gg/gMjr3kKt" target="_blank">
-      <button class="discord-btn">Join our Discord</button>
-    </a>
-
-    <form onsubmit="event.preventDefault(); alert('Form submitted!')">
-      <input type="text" placeholder="Enter something..." required />
-      <input type="submit" value="Submit" />
-    </form>
-
-    <section class="features">
-      <div class="feature">
-        <h3>⚡ Blazing Fast</h3>
-        <p>Optimized execution speeds ensure smooth script running without any lag or delays.</p>
-      </div>
-      <div class="feature">
-        <h3>🛡 Safe & Secure</h3>
-        <p>Advanced protection to stay ahead of banwaves and keep your account secure.</p>
-      </div>
-      <div class="feature">
-        <h3>➫ Script Editor</h3>
-        <p>Write, edit, and save scripts with ease using our built-in advanced editor.</p>
-      </div>
-    </section>
-
-    <section class="stats">
-      <div class="stat">
-        <span>30+</span>
-        Active Users
-      </div>
-      <div class="stat">
-        <span>99%</span>
-        Detection Free
-      </div>
-      <div class="stat">
-        <span>24/7</span>
-        Support
-      </div>
-      <div class="stat">
-        <span>1ms</span>
-        Execution Time
-      </div>
-    </section>
-
-    <section id="download" class="coming-soon">
-      🚧 Download Coming Soon... 🚧
-    </section>
-
-    <div class="countdown" id="countdown"></div>
-  </main>
-
-  <script>
-    function toggleTheme() {
-      const body = document.body;
-      const currentTheme = body.getAttribute("data-theme");
-      body.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
-    }
-
-    const countdownElement = document.getElementById("countdown");
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 17);
-
-    function updateCountdown() {
-      const now = new Date();
-      const diff = targetDate - now;
-
-      if (diff <= 0) {
-        countdownElement.innerHTML = "🎉 The wait is over!";
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      countdownElement.innerHTML = `⏳ <span>${days}</span>d <span>${hours}</span>h <span>${minutes}</span>m <span>${seconds}</span>s until launch!`;
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  </script>
+  <!-- ...existing HTML content... -->
 </body>
 </html>
