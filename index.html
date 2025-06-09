@@ -4,6 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Comet Executor</title>
+  <script>
+    if (window.location.pathname.endsWith("download.html")) {
+      document.write(`
+        <html><head><title>Coming Soon</title><style>
+        body { font-family: Arial, sans-serif; background: #0a0a0a; color: #fff; display: flex; align-items: center; justify-content: center; height: 100vh; text-align: center; }
+        h1 { font-size: 3rem; color: #ff99e0; }
+        </style></head><body><h1>🚧 Download Coming Soon...</h1></body></html>
+      `);
+      throw new Error("Stop further execution");
+    }
+  </script>
   <style>
     :root {
       --bg-color: #0a0a0a;
@@ -45,7 +56,15 @@
       color: var(--text-color);
       margin-left: 1rem;
       text-decoration: none;
-      transition: color 0.4s ease;
+      transition: color 0.4s ease, transform 0.2s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      display: inline-block;
+    }
+    nav a:hover {
+      transform: scale(1.05);
+      background: var(--accent-color);
+      color: white;
     }
     .theme-toggle {
       margin-left: 1rem;
@@ -178,7 +197,7 @@
     </div>
     <nav>
       <a href="#">Home</a>
-      <a href="#coming-soon">Download</a>
+      <a href="download.html" target="_blank">Download</a>
       <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
     </nav>
   </header>
@@ -202,7 +221,7 @@
         <p>Advanced protection to stay ahead of banwaves and keep your account secure.</p>
       </div>
       <div class="feature">
-        <h3>⟫ Script Editor</h3>
+        <h3>➫ Script Editor</h3>
         <p>Write, edit, and save scripts with ease using our built-in advanced editor.</p>
       </div>
     </section>
@@ -225,15 +244,6 @@
         Execution Time
       </div>
     </section>
-
-    <div id="coming-soon" class="coming-soon">
-      🚧 Download Coming Soon... 🚧
-      <div id="countdown"></div>
-      <form>
-        <input type="email" placeholder="Enter your email for updates" required />
-        <button type="submit">Notify Me</button>
-      </form>
-    </div>
   </main>
 
   <script>
@@ -242,30 +252,6 @@
       const currentTheme = body.getAttribute("data-theme");
       body.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
     }
-
-    const countdownElement = document.getElementById('countdown');
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 17);
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-
-      if (distance < 0) {
-        countdownElement.innerHTML = "🚀 It's here!";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      countdownElement.innerHTML = `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s until launch!`;
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
   </script>
 </body>
 </html>
