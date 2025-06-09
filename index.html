@@ -13,11 +13,11 @@
       --header-bg: #121212;
     }
     [data-theme="light"] {
-      --bg-color: #ffffff;
-      --text-color: #111111;
-      --accent-color: #e600ff;
-      --card-bg: #f0f0f0;
-      --header-bg: #fafafa;
+      --bg-color: #f4f4f4;
+      --text-color: #121212;
+      --accent-color: #7f00ff;
+      --card-bg: #ffffff;
+      --header-bg: #e4e4e4;
     }
     body {
       margin: 0;
@@ -33,87 +33,242 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #ccc;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid #2c2c2c;
+      transition: background 0.4s ease;
     }
     .logo {
-      color: var(--accent-color);
+      color: #ff7ce5;
       font-weight: bold;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
     nav a {
       color: var(--text-color);
       margin-left: 1rem;
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: color 0.4s ease, transform 0.2s ease;
       padding: 0.5rem 1rem;
       border-radius: 10px;
+      display: inline-block;
     }
     nav a:hover {
-      background-color: var(--accent-color);
-      color: white;
       transform: scale(1.05);
+      background: var(--accent-color);
+      color: white;
     }
     .theme-toggle {
+      margin-left: 1rem;
       background: transparent;
-      border: 2px solid var(--accent-color);
+      border: 1px solid var(--accent-color);
       padding: 0.4rem 1rem;
       border-radius: 20px;
       color: var(--accent-color);
       cursor: pointer;
+      transition: background 0.3s ease;
     }
     .theme-toggle:hover {
       background: var(--accent-color);
       color: white;
     }
-    .coming-soon {
-      font-size: 3rem;
+    h1 {
+      font-size: 2.5rem;
       color: var(--accent-color);
-      margin-top: 4rem;
+      margin-top: 2rem;
+      animation: fadeInDown 1s ease;
+    }
+    .subtext {
+      color: #cccccc;
+      margin: 1rem 0 2rem;
+      animation: fadeInUp 1.2s ease;
+    }
+    .discord-btn {
+      background: linear-gradient(90deg, #ff7ce5, #7f5eff);
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      animation: fadeIn 1.4s ease;
+    }
+    .discord-btn:hover {
+      transform: scale(1.05);
+    }
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+      animation: fadeIn 1.6s ease;
+    }
+    .feature {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 10px;
+      width: 280px;
+      text-align: left;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+      transition: background 0.4s ease, transform 0.3s ease;
+    }
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+    .feature h3 {
+      margin-top: 0;
+      color: var(--accent-color);
+    }
+    .stats {
+      background: linear-gradient(90deg, #2a0033, #220033);
+      padding: 2rem 0;
+      margin-top: 3rem;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      animation: fadeInUp 1.8s ease;
+    }
+    .stat {
+      font-size: 1.5rem;
+    }
+    .stat span {
+      display: block;
+      font-size: 2rem;
+      color: var(--accent-color);
+      font-weight: bold;
     }
     .countdown {
       margin-top: 1rem;
       font-size: 1.5rem;
+    }
+    .countdown span {
       color: var(--accent-color);
       font-weight: bold;
     }
+    form {
+      margin-top: 2rem;
+    }
+    form input[type="text"] {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid var(--accent-color);
+      margin-right: 1rem;
+    }
+    form input[type="submit"] {
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
   </style>
 </head>
-<body data-theme="light">
+<body data-theme="dark">
   <header>
-    <div class="logo">Comet</div>
+    <div class="logo">
+      ✨ Comet
+    </div>
     <nav>
-      <a href="#home">Home</a>
+      <a href="#">Home</a>
       <a href="#download">Download</a>
       <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
     </nav>
   </header>
+
   <main>
-    <div class="coming-soon">🚧 Download Coming Soon...</div>
+    <h1>Comet Executor</h1>
+    <p class="subtext">Your ultimate Roblox executor experience.<br>
+      Welcome to the future of Roblox scripting. Comet brings unparalleled performance and security to your Roblox scripting workflow.
+    </p>
+    <a href="https://discord.gg/gMjr3kKt" target="_blank">
+      <button class="discord-btn">Join our Discord</button>
+    </a>
+
+    <form onsubmit="event.preventDefault(); alert('Form submitted!')">
+      <input type="text" placeholder="Enter something..." required />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <section class="features">
+      <div class="feature">
+        <h3>⚡ Blazing Fast</h3>
+        <p>Optimized execution speeds ensure smooth script running without any lag or delays.</p>
+      </div>
+      <div class="feature">
+        <h3>🛡 Safe & Secure</h3>
+        <p>Advanced protection to stay ahead of banwaves and keep your account secure.</p>
+      </div>
+      <div class="feature">
+        <h3>➫ Script Editor</h3>
+        <p>Write, edit, and save scripts with ease using our built-in advanced editor.</p>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat">
+        <span>30+</span>
+        Active Users
+      </div>
+      <div class="stat">
+        <span>99%</span>
+        Detection Free
+      </div>
+      <div class="stat">
+        <span>24/7</span>
+        Support
+      </div>
+      <div class="stat">
+        <span>1ms</span>
+        Execution Time
+      </div>
+    </section>
+
+    <section id="download" class="coming-soon">
+      🚧 Download Coming Soon... 🚧
+    </section>
+
     <div class="countdown" id="countdown"></div>
   </main>
+
   <script>
     function toggleTheme() {
       const body = document.body;
       const currentTheme = body.getAttribute("data-theme");
-      body.setAttribute("data-theme", currentTheme === "light" ? "dark" : "light");
+      body.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
     }
 
-    // Countdown Logic
-    const countdownEl = document.getElementById("countdown");
-    const launchDate = new Date();
-    launchDate.setDate(launchDate.getDate() + 17);
+    const countdownElement = document.getElementById("countdown");
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 17);
 
     function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = launchDate - now;
+      const now = new Date();
+      const diff = targetDate - now;
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      if (diff <= 0) {
+        countdownElement.innerHTML = "🎉 The wait is over!";
+        return;
+      }
 
-      countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s until launch!`;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdownElement.innerHTML = `⏳ <span>${days}</span>d <span>${hours}</span>h <span>${minutes}</span>m <span>${seconds}</span>s until launch!`;
     }
 
     updateCountdown();
@@ -121,4 +276,3 @@
   </script>
 </body>
 </html>
-
